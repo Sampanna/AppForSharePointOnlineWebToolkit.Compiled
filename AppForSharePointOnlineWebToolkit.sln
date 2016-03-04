@@ -7,7 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{33DC39A8-B6A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{35CB03B9-112F-47A0-9EDC-C9F15B0C538D}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		AppForSharePointOnlineWebToolkit.sln.DotSettings = AppForSharePointOnlineWebToolkit.sln.DotSettings
 		build.bat = build.bat
+		README.md = README.md
+		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppForSharePointOnlineWebToolkit", "src\AppForSharePointOnlineWebToolkit\AppForSharePointOnlineWebToolkit.csproj", "{DB8D84C8-D685-4DF2-BCF9-AA7056CCA27F}"
