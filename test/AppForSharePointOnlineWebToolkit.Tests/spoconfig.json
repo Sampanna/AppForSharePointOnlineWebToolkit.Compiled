@@ -1,0 +1,19 @@
+﻿{
+  "appSettings": [
+    { "key": "ClientSigningCertificatePath", "value": "path/to/certificate" },
+    { "key": "ClientSigningCertificatePassword", "value": "Pa$$W0rd" },
+
+    { "key": "HostedAppHostName", "value": "localhost" },
+    { "key": "HostedAppHostNameOverride", "value": "localhost.local" },
+
+    { "key": "HostedAppName", "value": "TestApp" },
+    { "key": "HostedAppSigningKey", "value": "TestAppKey" },
+
+    { "key": "ClientId", "value": "this-is-client-id" },
+    { "key": "ClientSecret", "value": "this-is-client-secret-key" },
+    { "key": "SecondaryClientSecret", "value": "this-is-secondary-client-secret-key" },
+
+    { "key": "IssuerId", "value": "this-is-issuer-id" },
+    { "key": "Realm", "value": "this-is-realm" }
+  ]
+}

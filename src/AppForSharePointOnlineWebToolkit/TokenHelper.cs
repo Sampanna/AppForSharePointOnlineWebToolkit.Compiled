@@ -12,8 +12,9 @@ using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Script.Serialization;
+
+using AppForSharePointOnlineWebToolkit.Configs;
 
 using Microsoft.IdentityModel;
 using Microsoft.IdentityModel.S2S.Protocols.OAuth2;
@@ -59,11 +60,11 @@ namespace AppForSharePointOnlineWebToolkit
         /// </summary>
         public static readonly TimeSpan HighTrustAccessTokenLifetime = TimeSpan.FromHours(12.0);
 
-        private static readonly string ClientSigningCertificatePassword =
-            WebConfigurationManager.AppSettings.Get("ClientSigningCertificatePassword");
+        private static readonly SpoConfigManager SpoConfigManager = new SpoConfigManager();
 
-        private static readonly string ClientSigningCertificatePath =
-            WebConfigurationManager.AppSettings.Get("ClientSigningCertificatePath");
+        private static readonly string ClientSigningCertificatePassword = SpoConfigManager.AppSettings.Get("ClientSigningCertificatePassword");
+
+        private static readonly string ClientSigningCertificatePath = SpoConfigManager.AppSettings.Get("ClientSigningCertificatePath");
 
         private static readonly X509Certificate2 ClientCertificate = (string.IsNullOrEmpty(ClientSigningCertificatePath)
                                                                       || string.IsNullOrEmpty(
@@ -74,32 +75,30 @@ namespace AppForSharePointOnlineWebToolkit
                                                                                ClientSigningCertificatePassword);
 
         // Hosted app configuration
-        private static readonly string ClientId =
-            string.IsNullOrEmpty(WebConfigurationManager.AppSettings.Get("ClientId"))
-                ? WebConfigurationManager.AppSettings.Get("HostedAppName")
-                : WebConfigurationManager.AppSettings.Get("ClientId");
+        private static readonly string ClientId = string.IsNullOrEmpty(SpoConfigManager.AppSettings.Get("ClientId"))
+                ? SpoConfigManager.AppSettings.Get("HostedAppName")
+                : SpoConfigManager.AppSettings.Get("ClientId");
 
-        private static readonly string ClientSecret =
-            string.IsNullOrEmpty(WebConfigurationManager.AppSettings.Get("ClientSecret"))
-                ? WebConfigurationManager.AppSettings.Get("HostedAppSigningKey")
-                : WebConfigurationManager.AppSettings.Get("ClientSecret");
+        private static readonly string ClientSecret = string.IsNullOrEmpty(SpoConfigManager.AppSettings.Get("ClientSecret"))
+                ? SpoConfigManager.AppSettings.Get("HostedAppSigningKey")
+                : SpoConfigManager.AppSettings.Get("ClientSecret");
 
-        private static readonly string HostedAppHostName = WebConfigurationManager.AppSettings.Get("HostedAppHostName");
+        private static readonly string HostedAppHostName = SpoConfigManager.AppSettings.Get("HostedAppHostName");
 
         private static readonly string HostedAppHostNameOverride =
-            WebConfigurationManager.AppSettings.Get("HostedAppHostNameOverride");
+            SpoConfigManager.AppSettings.Get("HostedAppHostNameOverride");
 
         private static readonly string IssuerId =
-            string.IsNullOrEmpty(WebConfigurationManager.AppSettings.Get("IssuerId"))
+            string.IsNullOrEmpty(SpoConfigManager.AppSettings.Get("IssuerId"))
                 ? ClientId
-                : WebConfigurationManager.AppSettings.Get("IssuerId");
+                : SpoConfigManager.AppSettings.Get("IssuerId");
 
-        private static readonly string Realm = WebConfigurationManager.AppSettings.Get("Realm");
+        private static readonly string Realm = SpoConfigManager.AppSettings.Get("Realm");
 
         private static readonly string SecondaryClientSecret =
-            WebConfigurationManager.AppSettings.Get("SecondaryClientSecret");
+            SpoConfigManager.AppSettings.Get("SecondaryClientSecret");
 
-        private static readonly string ServiceNamespace = WebConfigurationManager.AppSettings.Get("Realm");
+        private static readonly string ServiceNamespace = SpoConfigManager.AppSettings.Get("Realm");
 
         private static readonly X509SigningCredentials SigningCredentials = (ClientCertificate == null)
                                                                                 ? null
