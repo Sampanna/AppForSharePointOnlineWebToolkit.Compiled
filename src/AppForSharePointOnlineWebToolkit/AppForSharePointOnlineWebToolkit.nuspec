@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AppForSharePointOnlineWebToolkit.Compiled</id>
-    <version>3.1.2.3</version>
+    <version>$version$</version>
     <title>**Compiled** App for SharePoint Web Toolkit (for SharePoint Online)</title>
     <authors>Microsoft</authors>
     <owners>aliencube</owners>
@@ -31,4 +31,7 @@
     <file src="bin\Release\**\AppForSharePointOnlineWebToolkit.*" target="lib" />
     <file src="bin\Release\**\Microsoft.IdentityModel.*" target="lib" />
   </files>
+  <contentFiles>
+    <files include="any/any/spoconfig.json" buildAction="None" copyToOutput="true" flatten="true" />
+  </contentFiles>
 </package>
