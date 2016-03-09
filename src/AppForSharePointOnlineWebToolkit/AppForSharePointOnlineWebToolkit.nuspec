@@ -7,7 +7,7 @@
     <authors>Microsoft</authors>
     <owners>aliencube</owners>
     <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=267589&amp;clcid=0x409</licenseUrl>
-    <projectUrl>http://go.microsoft.com/fwlink/?LinkID=267590&amp;clcid=0x409</projectUrl>
+    <projectUrl>https://github.com/aliencube/AppForSharePointOnlineWebToolkit.Compiled</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>
       This is a compiled package of AppForSharePointOnlineWebToolkit (https://www.nuget.org/packages/AppForSharePointOnlineWebToolkit). This package is not maintained by Microsoft.
@@ -21,7 +21,7 @@
         * Any compiled version of 3.1.2.* contains customised classes and methods including ClientContextHelper, ClientContextWrapper, and SpoConfigManager for ASP.NET Core apps.
         ]]>
     </description>
-    <copyright>Microsoft</copyright>
+    <copyright>Microsoft has all rights on the original source code of AppForSharePointOnlineWebToolkit.</copyright>
     <tags>SharePoint, SharePointOnline</tags>
     <dependencies>
       <dependency id="Microsoft.SharePointOnline.CSOM" version="16.1.4915.1200" />
