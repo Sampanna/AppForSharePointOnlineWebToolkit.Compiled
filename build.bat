@@ -1,6 +1,6 @@
 @echo off
 
-IF [%1]==[] GOTO MissingApiKey
+REM IF [%1]==[] GOTO MissingApiKey
 
 reg.exe query "HKLM\SOFTWARE\Microsoft\MSBuild\ToolsVersions\14.0" /v MSBuildToolsPath > nul 2>&1
 if ERRORLEVEL 1 goto MissingMSBuildRegistry
@@ -18,13 +18,13 @@ mkdir build
 del "build\*.nupkg"
 
 ::SET API KEY
-"tools\nuget.exe" setApiKey %1
+REM "tools\nuget.exe" setApiKey %1
 
 ::PACK
-"tools\nuget.exe" pack "src\AppForSharePointOnlineWebToolkit\AppForSharePointOnlineWebToolkit.nuspec" -OutputDirectory build
+"tools\nuget.exe" pack "src\AppForSharePointOnlineWebToolkit\AppForSharePointOnlineWebToolkit.nuspec" -OutputDirectory build -Version 3.1.2.5
 
 ::DEPLOY
-"tools\nuget.exe" push "build\*.nupkg"
+REM "tools\nuget.exe" push "build\*.nupkg"
 
 goto:eof
 ::ERRORS
