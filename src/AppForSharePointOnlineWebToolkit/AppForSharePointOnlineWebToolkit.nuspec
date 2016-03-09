@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>AppForSharePointOnlineWebToolkit.Compiled</id>
     <version>$version$</version>
@@ -18,7 +18,7 @@
         
         * If you only want code bits, download the original package.
         * If you only want the compiled version of the original code bits, download https://www.nuget.org/packages/AppForSharePointOnlineWebToolkit.Compiled/3.1.2 package.
-        * Any compiled version of 3.1.2.* contains customised classes and methods including ClientContextHelper, ClientContextExtensions, and SpoConfigManager for ASP.NET Core apps.
+        * Any compiled version of 3.1.2.* contains customised classes and methods including ClientContextHelper, ClientContextWrapper, and SpoConfigManager for ASP.NET Core apps.
         ]]>
     </description>
     <copyright>Microsoft</copyright>
@@ -26,12 +26,13 @@
     <dependencies>
       <dependency id="Microsoft.SharePointOnline.CSOM" version="16.1.4915.1200" />
     </dependencies>
+    <contentFiles>
+      <files include="any/any/spoconfig.json" buildAction="None" copyToOutput="true" flatten="true" />
+    </contentFiles>
   </metadata>
   <files>
     <file src="bin\Release\**\AppForSharePointOnlineWebToolkit.*" target="lib" />
     <file src="bin\Release\**\Microsoft.IdentityModel.*" target="lib" />
+    <file src="contentFiles\any\any\spoconfig.json" target="content" />
   </files>
-  <contentFiles>
-    <files include="any/any/spoconfig.json" buildAction="None" copyToOutput="true" flatten="true" />
-  </contentFiles>
 </package>
