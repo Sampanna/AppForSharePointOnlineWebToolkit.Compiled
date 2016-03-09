@@ -12,11 +12,11 @@ namespace AppForSharePointOnlineWebToolkit
         private bool _disposed;
 
         /// <summary>
-        /// Creates a new instance of the the <see cref="ClientContext"/> class.
+        /// Creates a new instance of the the <see cref="ClientContextWrapper"/> class.
         /// </summary>
         /// <param name="targetUri">Target site URL value.</param>
-        /// <returns>Returns the <see cref="ClientContext"/> instance created.</returns>
-        public ClientContext CreateAppOnlyClientContext(string targetUri)
+        /// <returns>Returns the <see cref="ClientContextWrapper"/> instance created.</returns>
+        public ClientContextWrapper CreateAppOnlyClientContext(string targetUri)
         {
             if (string.IsNullOrWhiteSpace(targetUri))
             {
@@ -27,11 +27,11 @@ namespace AppForSharePointOnlineWebToolkit
         }
 
         /// <summary>
-        /// Creates a new instance of the the <see cref="ClientContext"/> class.
+        /// Creates a new instance of the the <see cref="ClientContextWrapper"/> class.
         /// </summary>
         /// <param name="targetUri">Target site URI value.</param>
-        /// <returns>Returns the <see cref="ClientContext"/> instance created.</returns>
-        public ClientContext CreateAppOnlyClientContext(Uri targetUri)
+        /// <returns>Returns the <see cref="ClientContextWrapper"/> instance created.</returns>
+        public ClientContextWrapper CreateAppOnlyClientContext(Uri targetUri)
         {
             if (targetUri == null)
             {
@@ -41,7 +41,7 @@ namespace AppForSharePointOnlineWebToolkit
             var realm = TokenHelper.GetRealmFromTargetUrl(targetUri);
             var response = TokenHelper.GetAppOnlyAccessToken(TokenHelper.SharePointPrincipal, targetUri.Authority, realm);
             var context = TokenHelper.GetClientContextWithAccessToken(targetUri.ToString(), response.AccessToken);
-            return context;
+            return new ClientContextWrapper(context);
         }
 
         /// <summary>
