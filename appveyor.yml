@@ -19,14 +19,14 @@
   - cmd: msbuild "test\AppForSharePointOnlineWebToolkit.Tests\AppForSharePointOnlineWebToolkit.Tests.csproj" /t:ReBuild /v:minimal /p:Configuration=Debug;TargetFrameworkVersion=v4.5;DefineConstants="DEBUG;TRACE";OutPutPath=bin\Debug\
   - cmd: packages\xunit.runner.console.2.1.0\tools\xunit.console.exe test\AppForSharePointOnlineWebToolkit.Tests\bin\Debug\AppForSharePointOnlineWebToolkit.Tests.dll -appveyor
 
-# for release branch
+# for release/all branch
 -
   version: 3.1.2.{build}
   pull_requests:
     do_not_increment_build_number: true
   branches:
     only:
-    - release
+    - release/all
   skip_tags: true
   image: Visual Studio 2015
   configuration: Release
@@ -58,10 +58,10 @@
       secure: ZdI7BA2YRQg/yRMPbRGTTJeGWj3X3o8kNhf4LeA5YkV072GpmKwQ3aW+KVgMbkZX
     artifact: AppForSharePointOnlineWebToolkit
     on:
-      branch: release
+      branch: release/all
       platform: Any CPU
       configuration: Release
   after_deploy:
   - cmd: git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_auth_token):x-oauth-basic@github.com`n"
-  - cmd: git push origin --delete release
+  - cmd: git push origin --delete release/all
