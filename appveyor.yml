@@ -48,7 +48,7 @@
   - cmd: msbuild AppForSharePointOnlineWebToolkit.sln /t:ReBuild /v:minimal /p:Configuration=Release;TargetFrameworkVersion=v4.5;DefineConstants="TRACE";OutPutPath=bin\Release\net45\
   - cmd: packages\xunit.runner.console.2.1.0\tools\xunit.console.exe test\AppForSharePointOnlineWebToolkit.Tests\bin\Release\net45\AppForSharePointOnlineWebToolkit.Tests.dll -appveyor
   after_test:
-  - cmd: tools\nuget pack "src\AppForSharePointOnlineWebToolkit\AppForSharePointOnlineWebToolkit.nuspec" -OutputDirectory build -Version {version}
+  - cmd: tools\nuget pack "src\AppForSharePointOnlineWebToolkit\AppForSharePointOnlineWebToolkit.nuspec" -OutputDirectory build -Version %APPVEYOR_BUILD_VERSION%
   artifacts:
   - path: '**\*.nupkg'
     name: AppForSharePointOnlineWebToolkit
