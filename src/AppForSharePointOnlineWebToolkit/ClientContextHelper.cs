@@ -16,7 +16,7 @@ namespace AppForSharePointOnlineWebToolkit
         /// </summary>
         /// <param name="targetUri">Target site URL value.</param>
         /// <returns>Returns the <see cref="ClientContextWrapper"/> instance created.</returns>
-        public ClientContextWrapper CreateAppOnlyClientContext(string targetUri)
+        public IClientContextWrapper CreateAppOnlyClientContext(string targetUri)
         {
             if (string.IsNullOrWhiteSpace(targetUri))
             {
@@ -31,7 +31,7 @@ namespace AppForSharePointOnlineWebToolkit
         /// </summary>
         /// <param name="targetUri">Target site URI value.</param>
         /// <returns>Returns the <see cref="ClientContextWrapper"/> instance created.</returns>
-        public ClientContextWrapper CreateAppOnlyClientContext(Uri targetUri)
+        public IClientContextWrapper CreateAppOnlyClientContext(Uri targetUri)
         {
             if (targetUri == null)
             {

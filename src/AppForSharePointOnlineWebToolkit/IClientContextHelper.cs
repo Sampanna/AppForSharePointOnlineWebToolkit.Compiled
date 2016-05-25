@@ -12,13 +12,13 @@ namespace AppForSharePointOnlineWebToolkit
         /// </summary>
         /// <param name="targetUri">Target site URL value.</param>
         /// <returns>Returns the <see cref="ClientContextWrapper"/> instance created.</returns>
-        ClientContextWrapper CreateAppOnlyClientContext(string targetUri);
+        IClientContextWrapper CreateAppOnlyClientContext(string targetUri);
 
         /// <summary>
         /// Creates a new instance of the the <see cref="ClientContextWrapper"/> class.
         /// </summary>
         /// <param name="targetUri">Target site URI value.</param>
         /// <returns>Returns the <see cref="ClientContextWrapper"/> instance created.</returns>
-        ClientContextWrapper CreateAppOnlyClientContext(Uri targetUri);
+        IClientContextWrapper CreateAppOnlyClientContext(Uri targetUri);
     }
 }
