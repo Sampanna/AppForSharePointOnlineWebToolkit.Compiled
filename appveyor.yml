@@ -1,6 +1,6 @@
 # for dev/master branch
 -
-  version: 3.1.2.{build}
+  version: 3.1.4.{build}
   pull_requests:
     do_not_increment_build_number: true
   branches:
@@ -21,7 +21,7 @@
 
 # for release/all branch
 -
-  version: 3.1.2.{build}
+  version: 3.1.4.{build}
   pull_requests:
     do_not_increment_build_number: true
   branches:
