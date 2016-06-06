@@ -68,6 +68,38 @@ using (var context = helper.CreateAppOnlyClientContext("http://localhost")
 }
 ```
 
+## Notes for ASP.NET Core Web Applications ##
+
+Even though you import this library from NuGet, the `spoconfig.json` file is not automatically copied to your solution. It should be manually copied for your use. 
+
+
+### ASP.NET Core RC1 Sample ###
+
+If you want to use this library on your ASP.NET Core RC1 web application, the `spoconfig.json` file should be copied to `wwwroot`; otherwise it will throw an exception.
+
+
+### ASP.NET Core RC2 Sample ###
+
+If you want to use this library on your ASP.NET Core RC2 web application, the `spoconfig.json` file should be copied to your project root; otherwise it will throw an exception.
+
+In addition to this, your `project.json` should be modified for publishing like:
+
+```json
+...
+
+"publishOptions": {
+  "include": [
+    "wwwroot",
+    "Views",
+    "appsettings.json",
+    "spoconfig.json",
+    "web.config"
+  ]
+},
+
+...
+```
+
 
 ## License ##
 
